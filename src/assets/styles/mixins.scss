@@ -1,0 +1,61 @@
+@import 'variables';
+
+$defaultFlexBoxAlign: center;
+$defaultFlexBoxJustify: flex-start;
+@mixin flexbox($align: $defaultFlexBoxAlign, $justify: $defaultFlexBoxJustify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin clearList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin imgCenter {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+@mixin dotDotDot($width) {
+  max-width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Media request mixins MobileFirst
+@mixin forTablet {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin forDesktopSm {
+  @media screen and (min-width: 720px) {
+    @content;
+  }
+}
+
+@mixin forDesktopMiddle {
+  @media screen and (min-width: 980px) {
+    @content;
+  }
+}
+
+@mixin forDesktopBig {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin forDesktopHuge {
+  @media screen and (min-width: 1440px) {
+    @content;
+  }
+}
