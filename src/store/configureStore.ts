@@ -5,9 +5,22 @@ import {
   combineReducers,
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import reducer from './rootReducer';
+import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
+
+const meConfig = {
+  key: 'me',
+  storage,
+  whitelist: ['theme'],
+};
+
+const reducers = {
+  ...rootReducer,
+  me: persistReducer(meConfig, rootReducer.me),
+};
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -21,7 +34,7 @@ export default (initialState: { [key: string]: never } = {}) => {
     compose;
 
   const store = createStore(
-    combineReducers(reducer),
+    combineReducers(reducers),
     initialState,
     composeEnhancers(
       applyMiddleware(sagaMiddleware),
@@ -29,6 +42,7 @@ export default (initialState: { [key: string]: never } = {}) => {
   );
 
   sagaMiddleware.run(rootSaga);
+  const persistor = persistStore(store);
 
-  return { store };
+  return { store, persistor };
 };

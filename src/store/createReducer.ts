@@ -5,10 +5,7 @@ const createReducer = <T>(
   initialState: T,
   handlers: Record<string, ActionFn<T, any>>,
 ) => (state = initialState, action: Action<string> & any) => (
-    Object
-      .prototype
-      .hasOwnProperty
-      .call(handlers, action.type)
+    Object.prototype.hasOwnProperty.call(handlers, action.type)
       ? handlers[action.type](state, action)
       : state);
 
