@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { GameTable } from 'containers';
 import meSelectors from 'store/me/selectors';
 import { Theme } from 'types';
 import styles from './styles.module.scss';
@@ -21,7 +22,9 @@ const App: FC = () => {
   }, [theme]);
 
   return (
-    <div className={styles.background} />
+    <div className={styles.background}>
+      <GameTable />
+    </div>
   );
 };
 
