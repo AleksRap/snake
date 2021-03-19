@@ -4,6 +4,17 @@
 
 
 :root {
-  //--color-black: #000000;
-  //--color-white: #FFFFFF;
+  --color-gray: #292929;
+  --color-white: #FFFFFF;
+}
+
+body {
+
+  &.light {
+    --color-background: var(--color-white);
+  }
+
+  &.dark {
+    --color-background: var(--color-gray);
+  }
 }
