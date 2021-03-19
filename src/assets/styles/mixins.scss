@@ -2,7 +2,7 @@
 
 $defaultFlexBoxAlign: center;
 $defaultFlexBoxJustify: flex-start;
-@mixin flexbox($align: $defaultFlexBoxAlign, $justify: $defaultFlexBoxJustify) {
+@mixin flexbox($justify: $defaultFlexBoxJustify, $align: $defaultFlexBoxAlign) {
   display: flex;
   align-items: $align;
   justify-content: $justify;
