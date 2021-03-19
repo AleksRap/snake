@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { GameTable } from 'containers';
 import meSelectors from 'store/me/selectors';
@@ -21,9 +21,11 @@ const App: FC = () => {
     }
   }, [theme]);
 
+  const [isStartGame, setStartGame] = useState<boolean>(false);
+
   return (
     <div className={styles.background}>
-      <GameTable />
+      <GameTable isStartGame={isStartGame} setStartGame={setStartGame} />
     </div>
   );
 };
