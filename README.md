@@ -1,1 +1,3 @@
-# My React start template
+# Snake
+
+TypeScript game snake
