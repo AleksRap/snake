@@ -1,0 +1,11 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.background {
+  width: 100vw;
+  height: 100vh;
+
+  @include flexbox(center);
+
+  background-color: $color-background;
+}
